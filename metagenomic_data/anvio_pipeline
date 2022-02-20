@@ -1,0 +1,9 @@
+# Pipeline in anvio
+
+    anvi-gen-contigs-database -f ${in}/${sample}_benthic.fasta -T $NUM_THREADS -o ${out}/${sample}_benthic.db
+    anvi-run-hmms -c ${out}/${sample}_benthic.db -T $NUM_THREADS
+    anvi-run-scg-taxonomy -c ${out}/${sample}_benthic.db -T $NUM_THREADS
+    anvi-run-kegg-kofams -c ${out}/${sample}_benthic.db -T $NUM_THREADS
+    anvi-run-ncbi-cogs -c ${out}/${sample}_benthic.db -T $NUM_THREADS
+    anvi-run-pfams -c ${out}/${sample}_benthic.db -T $NUM_THREADS
+    anvi-profile -i ${bam}/${sample}_benthic.bam -c ${in}/${sample}_benthic.db -T 15 -o ${out} -S ${sample} --cluster-contigs
