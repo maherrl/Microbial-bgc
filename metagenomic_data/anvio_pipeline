@@ -1,5 +1,8 @@
 # Pipeline in anvio
 
+# start with assembled contigs from spades
+
+    anvi-script-reformat-fasta ${in}/$sample/contigs.fasta -o ${out}/$sample.fasta -l 500 --simplify-names
     anvi-gen-contigs-database -f ${in}/${sample}_benthic.fasta -T $NUM_THREADS -o ${out}/${sample}_benthic.db
     anvi-run-hmms -c ${out}/${sample}_benthic.db -T $NUM_THREADS
     anvi-run-scg-taxonomy -c ${out}/${sample}_benthic.db -T $NUM_THREADS
