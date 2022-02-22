@@ -9,4 +9,7 @@
     anvi-run-kegg-kofams -c ${out}/${sample}_benthic.db -T $NUM_THREADS
     anvi-run-ncbi-cogs -c ${out}/${sample}_benthic.db -T $NUM_THREADS
     anvi-run-pfams -c ${out}/${sample}_benthic.db -T $NUM_THREADS
+    
+#Next step requires a bam file generated using bowtie.sh script
+
     anvi-profile -i ${bam}/${sample}_benthic.bam -c ${in}/${sample}_benthic.db -T 15 -o ${out} -S ${sample} --cluster-contigs
