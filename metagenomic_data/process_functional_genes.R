@@ -33,6 +33,7 @@ lsTab <- list()
 for(i in x) {
   
   cov <- read_table(file = paste0(i,"_gene_table-GENE-COVERAGES.txt"), col_types = cols())
+# cov[-1] <- sapply(cov[-1], function(x) {as.numeric(x > 0)}) # option for getting binary table for counts 
   func <- read_tsv(file = paste0(i,"_functions.txt"), col_types = cols()) %>%
     filter(source == "Pfam") %>% 
     select(-e_value)
