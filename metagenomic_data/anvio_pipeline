@@ -12,4 +12,4 @@
     
 #Next step requires a bam file generated using bowtie.sh script
 
-    anvi-profile -i ${bam}/${sample}_benthic.bam -c ${in}/${sample}_benthic.db -T 15 -o ${out} -S ${sample} --cluster-contigs
+    anvi-profile-blitz -i ${bam}/${sample}_benthic.bam -c ${in}/${sample}_benthic.db -T 15 -o ${out} -S ${sample} --gene-mode --gene-caller prodigal
